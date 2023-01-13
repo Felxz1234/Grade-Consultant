@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula</title>
+    <style>
+       .principal{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+       }
+       body{
+        background-color: rgb(112, 100, 100);
+       }
+       header{
+        background-color:rgb(48, 139, 48) ;
+        padding: 10px;
+        border-radius: 10px;
+       }
+       main{
+        width: 80vw;
+        height: 80vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+       }
+       form{
+        display: flex;
+        flex-direction: column;
+        
+       }
+       .nome{
+        display: none;
+       }
+       input{
+        margin: 2px;
+        padding:15px;
+        border-radius: 5px;
+        border-style: none;
+        background-color: antiquewhite;
+       }
+       button{
+        background-color: antiquewhite;
+        border-style: none;
+        padding: 10px;
+        margin-top: 10px;
+        cursor: pointer;
+        
+       }
+       label{
+        font-weight: bold;
+        font-size: 100px;
+       }
+       .entrada{
+          background-color: rgb(42, 109, 42);
+        padding: 20px;
+        border-radius: 10px;
+       }
+    </style>
+</head>
+<body>
+    <div class="principal">
+       
+        <main>
+            <div class="entrada">
+                <form action="/linkAula" method="post">
+                    <input value="<%=nome%>" class="nome" name="nome" type="text">
+                    <label for="">link do google meet</label>
+                    <input name="link" placeholder="link" type="text">
+                    <button>adicionar</button>
+                </form>
+            </div>
+            <div>
+
+            </div>
+        </main>
+    </div>
+</body>
+</html>

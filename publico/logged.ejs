@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aluno</title>
+    <style>
+
+      .pgc{
+          height: 300px;
+      }
+      .caixa{
+          background-color: rgb(65, 153, 65);
+          width:100% ;
+          height: 400px;
+      }
+      .botao{
+
+         margin-right: 100px;
+      }
+      .Pr{
+          width: 130px;
+      }
+      .Pr2{
+          width: 500px;
+      }
+      .g{
+          color: white;
+          border-radius: 5px;
+      }
+      .caixinha{
+          background-color: rgb(65, 153, 65);
+          /* width: 20%; */
+          height: 400px;
+          position: relative;
+          top: 100px;
+          border-radius: 20px;
+          
+          
+      }
+      .corpo{
+          /* font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+          background-color: rgb(209, 203, 203);
+      }
+      h3{
+        font-family:Arial, Helvetica, sans-serif;
+      }
+      
+      .under{
+        text-decoration: underline;
+      }
+      .botaos{
+          
+          width:200px  ;
+          height:200px ;
+      }
+      .aa{
+          text-decoration: none;
+          color: black;
+      }
+      .tela{
+          background-color: white;
+          height: 300px;
+          border-radius: 10px;
+      }
+      .h{
+          color: black;
+      }
+      h3{
+        color: gray;
+      }
+      
+      
+      
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<body class="corpo">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Aluno</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+              
+              
+            </ul>
+            
+                <a href="/logout"> <button class="btn border bu btn btn-outline-warning">Desconectar</button></a>
+            
+          </div>
+        </div>
+      </nav>
+    
+      </div>
+      <div id="carouselExampleIndicators"  data-bs-ride="carousel" class=" caixinha  carousel slide container d-flex align-items-center  ">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner  ">
+            <div class="carousel-item tela   active">
+              <div class="d-flex flex-column justify-content-center align-items-center ">
+                  <h1><%=aluno.nome%></h1>
+                  <h3>id:<%=aluno._id%></h3>
+                  <h4>PORTUGUES:<%=aluno.portugues%></h4>
+                  <h4>MATEMATICA:<%=aluno.matematica%></h4>
+                  <h4>CIENCIAS:<%=aluno.ciencias%></h4>
+                  <h4>FILOSOFIA:<%=aluno.filosofia%></h4>
+              </div>
+            </div>
+            <div class="carousel-item ">
+                <div class="d-flex justify-content-center ">
+                  <a class="aa " data-bs-toggle="modal" data-bs-target="#exampleModal1" href=""><h2>salas</h2></a>
+                    
+                </div>
+                
+            </div>
+                    
+            <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Salas</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body ">
+                    <%for(let s=0; s < salas.length; s++){%> 
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="card ">
+                            <div class="card-body">
+                              <h5 class="card-title"><%=salas[s].NomeDaSala%></h5>
+                              <p class="card-text"></p>
+                                <form action="/informations" method="post">
+                                  <button name="nome" value="<%=salas[s].NomeDaSala%>" class="btn btn-info">sala</button>
+                                </form>                 
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <%}%> 
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            
+          </div>
+          <button class="carousel-control-prev  " type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next h" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon " aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+      </div>
+  
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+     
+</body> 
+</html>
+
+
+
+
