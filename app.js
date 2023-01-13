@@ -23,4 +23,4 @@ app.use('/',express.json(),router)
 app.use('/',rotaAluno)
 app.use('/',rotaProf)
 
-server.listen(dotenv.PORT)
+server.listen(3000)
